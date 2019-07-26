@@ -2,7 +2,7 @@ export const ADD_TODO = 'ADD_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-
+let nextTodoId = 0
 export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
@@ -11,17 +11,18 @@ export const VisibilityFilters = {
 
 export const addTodo = (text) => ({
   type: ADD_TODO,
+  id: nextTodoId++,
   text
 })
 
-export const toggleTodo = (index) => ({
+export const toggleTodo = (id) => ({
   type: TOGGLE_TODO,
-  index
+  id
 })
 
-export const removeTodo = (index) => ({
+export const removeTodo = (id) => ({
   type: REMOVE_TODO,
-  index
+  id
 })
 
 export const setVisibilityFilter = (filter) => ({
